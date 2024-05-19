@@ -5,7 +5,7 @@
 Welcome to the Numeral System Converter! This application allows you to convert between various numeral systems, including binary, decimal, hexadecimal, and octal. The converter also includes additional functionalities such as binary calculator operations and ASCII text conversion.
 
 ## Features
-- **Convert Ascii value to binary
+- **Convert Ascii value to binary**
 
 ## Upcoming features to add
 
