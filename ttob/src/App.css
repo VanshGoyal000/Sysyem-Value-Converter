@@ -1,10 +1,16 @@
-input {
-  height: 30px;
-  width: 200px;
-}
-.main{
-  display: flexbox;
+.input {
+ 
+  display: flex;
+  justify-content: center;
   align-items: center;
+  flex-direction: column;
+
+}
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 #text{
   font-size: 20px;
@@ -20,6 +26,22 @@ border: 3px solid rgb(111, 87, 87);
 font-size: 1.4rem;
 color: rgb(0, 0, 0);
 text-decoration: rgb(255, 255, 255);
+margin-left: 50px;
+}
+
+.copied-message {
+  color: green;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+.error {
+  color: red;
+  margin-top: 10px;
+}
+
+.response {
+  margin-top: 20px;
 }
 
 

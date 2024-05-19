@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import './App.css';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 function App() {
   const [text, setText] = useState('');
   const [response, setResponse] = useState('');
   const [error, setError] = useState(null);
+  const [copied, setCopied] = useState(false);
 
   const handleInputChange = (e) => {
     setText(e.target.value);
@@ -13,10 +15,11 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    setError(null); 
+    setError(null);
+    setCopied(false); // Reset copied state
     axios.post("http://localhost:3000/convert", { text })
       .then((res) => {
-        console.log(res.data)
+        console.log(res.data);
         setResponse(res.data.data); // Access the 'data' property from the response
       })
       .catch((err) => {
@@ -49,12 +52,18 @@ function App() {
           <button type="submit" id='btn'>Convert</button>
         </form>
       </div>
+      {error && <p className="error">{error}</p>}
       {response && (
         <div className="response">
           <p>Response: {response}</p>
+          <CopyToClipboard text={response} onCopy={() => setCopied(true)}>
+            <button>Copy to Clipboard</button>
+          </CopyToClipboard>
+          {copied && <p className="copied-message">Copied!</p>}
         </div>
       )}
-     </div>
-  )}
+    </div>
+  );
+}
 
-export default App      
+export default App;
